@@ -40,7 +40,7 @@ public class HelloWorld implements RequestHandler<APIGatewayV2HTTPEvent, APIGate
 			} else {
 				response = APIGatewayV2HTTPResponse.builder()
 						.withStatusCode(400)
-						.withBody("{\"statusCode\": 400, \"message\": \"Bad request syntax or unsupported method. Request path: " +  requestPath + ", HTTP method: " + httpMethod+ "\"}")
+						.withBody("{\"statusCode\": 400, \"message\": \"Bad request syntax or unsupported method. Request path: " +  requestPath + ". HTTP method: " + httpMethod+ "\"}")
 						.build();
 			}
 		} catch (Exception ex) {
