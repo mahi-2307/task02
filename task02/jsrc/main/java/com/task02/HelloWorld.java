@@ -9,6 +9,7 @@ import com.syndicate.deployment.model.lambda.url.InvokeMode;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
 import com.syndicate.deployment.annotations.lambda.LambdaHandler;
+import org.apache.http.protocol.HTTP;
 
 @LambdaHandler(
 		lambdaName = "hello_world",
@@ -39,7 +40,7 @@ public class HelloWorld implements RequestHandler<APIGatewayV2HTTPEvent, APIGate
 			} else {
 				response = APIGatewayV2HTTPResponse.builder()
 						.withStatusCode(400)
-						.withBody("{\"statusCode\": 400, \"message\": \"Invalid request. Path: " + (requestPath != null ? requestPath : "null") + ", Method: " + (httpMethod != null ? httpMethod : "null") + "\"}")
+						.withBody("{\"statusCode\": 400, \"message\": \"Bad request syntax or unsupported method. Request path: " +  requestPath + ", HTTP method: " + httpMethod+ "\"}")
 						.build();
 			}
 		} catch (Exception ex) {
