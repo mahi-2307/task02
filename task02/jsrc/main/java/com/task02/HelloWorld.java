@@ -13,7 +13,7 @@ import org.apache.http.protocol.HTTP;
 
 @LambdaHandler(
 		lambdaName = "hello_world",
-		roleName = "hello_world_role",
+		roleName = "hello_world-role",
 		isPublishVersion = false,
 		logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
 )
